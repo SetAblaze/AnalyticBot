@@ -1,0 +1,65 @@
+version: "3.1"
+
+stories:
+
+- story: пока
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: кто ты
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: курс долго
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: currency
+  - action: utter_getting_currency
+  - action: action_get_currency
+  - action: utter_goodbye
+
+- story: курс быстро
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_currency
+  - action: utter_getting_currency
+  - action: action_get_currency
+
+- story: курс график доллара
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: currency_graph_usd
+  - action: utter_getting_currency
+  - action: utter_dgraph
+  - action: action_get_graph
+
+- story: курс график рубля
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: currency_graph_rub
+  - action: utter_getting_currency
+  - action: utter_rgraph
+  - action: action_get_graph
+
+- story: курс график евро
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: currency_graph_eur
+  - action: utter_getting_currency
+  - action: utter_egraph
+  - action: action_get_graph
+
+- story: курс
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: currency_for_current
+  - action: action_get_currency
+

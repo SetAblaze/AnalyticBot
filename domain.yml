@@ -1,0 +1,81 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - currency
+  - currency_for_current
+  - request_currency
+  - monetary_info
+  - bot_challenge
+  - currency_graph_rub
+  - currency_graph_eur
+  - currency_graph_usd
+
+entities:
+  - monetary
+  - monetary1
+  - monetary2
+
+slots:
+  monetary:
+      type: text
+      influence_conversation: false
+      mappings:
+      - type: from_entity
+        entity: monetary
+  monetary1:
+      type: text
+      influence_conversation: false
+      mappings:
+      - type: from_entity
+        entity: monetary1
+  monetary2:
+      type: text
+      influence_conversation: false
+      mappings:
+      - type: from_entity
+        entity: monetary2
+
+responses:
+  utter_greet:
+  - text: "Привет! Рад встрече"
+  - text: "Приветствую!"
+
+  utter_dgraph:
+  - text: "Вывожу график"
+    image: "https://charts.profinance.ru/html/charts/image?SID=L4H3d9F0&s=EURUSD&h=368&w=720&pt=2&tt=1&z=7&ba=2&nw=720&T=1671623896006&imd=1"
+  
+  utter_rgraph:
+  - text: "Вывожу график"
+    image: "https://charts.profinance.ru/html/charts/image?SID=qP6r7UB1&s=USDRUB&h=368&w=720&pt=2&tt=1&z=7&ba=2&nw=720&T=1671623606113&imd=1"
+  
+  utter_egraph:
+  - text: "Вывожу график"
+    image: "https://charts.profinance.ru/html/charts/image?SID=z8XfOUl7&s=EURRUB&h=368&w=720&pt=2&tt=1&z=7&ba=2&nw=720&T=1671623840908&imd=1"
+
+  utter_ask_currency:
+  - text: "Курс какой валюты вам нужен?"
+
+  utter_getting_currency:
+  - text: "Провожу сравнения курса валют.."
+
+  utter_did_that_help:
+  - text: "Это вам помогло?"
+
+  utter_happy:
+  - text: "Отлично! Рад помочь!"
+
+  utter_goodbye:
+  - text: "До скорой встречи!"
+
+  utter_iamabot:
+  - text: "Я Rasa Analytic bot"
+
+actions:
+  - action_get_currency
+  - action_get_graph
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
